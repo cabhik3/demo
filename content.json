@@ -1,0 +1,27 @@
+{
+    "body": {
+      "strength": "Track your workouts, log pushups, and set weekly strength goals.",
+      "recovery": "Log your sleep hours, hydration, and relaxation time.",
+      "illness": "Note down symptoms and any medications or doctor visits."
+    },
+    "mind": {
+      "intelligence": "Try daily logic puzzles, memory games, or read summaries of great books.",
+      "processing_power": "Practice multitasking and quick decision-making tasks.",
+      "memory_usage": "Use journaling and repetition games to train your memory."
+    },
+    "emotion": {
+      "tolerance": "Rate your stress levels and journal about emotionally challenging situations.",
+      "maturity": "Reflect on how you responded to emotional situations and what you learned.",
+      "boost": "Watch uplifting videos, read affirmations, and do one kind act a day."
+    },
+    "body_mind": {
+      "overview": "Explore how physical health improves focus and clarity."
+    },
+    "mind_emotion": {
+      "overview": "Learn how mindset shapes emotional response and regulation."
+    },
+    "emotion_body": {
+      "overview": "Understand how stress affects your body and vice versa."
+    }
+  }
+  
