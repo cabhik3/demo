@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Progress Graph - ChakraCoach</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .hex-graph h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .score-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px 0;
+    }
+
+    .card {
+      width: 180px;
+      height: 120px;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .red {
+      background-color: #e53935;
+    }
+
+    .green {
+      background-color: #43a047;
+    }
+
+    .chart-container {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    canvas {
+      background-color: #fffde7;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00796b;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="hex-graph">
+    <h2>Self Development Radar</h2>
+    <div class="score-section">
+      <div class="card red">Things to Work On</div>
+      <div class="chart-container">
+        <canvas id="radarChart" width="400" height="400"></canvas>
+      </div>
+      <div class="card green">Strengths & Prospects</div>
+    </div>
+    <p>Body = 85%, Mind = 90%, Emotion = 75%<br>M+B = 80%, M+E = 88%, E+B = 70%</p>
+    <br>
+    <a href="/dashboard">← Back to Dashboard</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+fetch('/api/graph-data')
+  .then(response => response.json())
+  .then(data => {
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Body', 'Mind', 'Emotion', 'Mind+Body', 'Mind+Emotion', 'Emotion+Body'],
+        datasets: [{
+          label: 'Your Growth Profile',
+          data: data,
+          backgroundColor: 'rgba(33, 150, 243, 0.2)',
+          borderColor: 'rgba(33, 150, 243, 1)',
+          pointBackgroundColor: 'rgba(33, 150, 243, 1)'
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+            ticks: {
+              stepSize: 20
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

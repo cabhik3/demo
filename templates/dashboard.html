@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Coaching Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Welcome, {{ username }} to ChakraCoach</h1>
+  <div class="pyramid-buttons">
+    <button class="btn body" onclick="location.href='/section/body/strength'">Body</button>
+    <button class="btn mind" onclick="location.href='/section/mind/intelligence'">Mind</button>
+    <button class="btn emotion" onclick="location.href='/section/emotion/tolerance'">Emotion</button>
+    
+    <button class="btn combo" onclick="location.href='/section/body_mind/overview'">Body & Mind</button>
+    <button class="btn combo" onclick="location.href='/section/mind_emotion/overview'">Mind & Emotion</button>
+    <button class="btn combo" onclick="location.href='/section/emotion_body/overview'">Emotion & Body</button>
+    
+    <button class="btn misc" onclick="alert('Play feature coming soon!')">Play</button>
+    <button class="btn misc" onclick="alert('Tutorial coming soon!')">Tutorial & Guidelines</button>
+  </div>
+  <br>
+  <a href="/logout">Logout</a>
+</body>
+</html>

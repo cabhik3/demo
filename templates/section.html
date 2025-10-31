@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ category.title() }} - {{ topic.replace('_', ' ').title() }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>{{ category.title() }}</h1>
+  <h2>{{ topic.replace('_', ' ').title() }}</h2>
+
+  <div class="content-pane">
+    <p>{{ content }}</p>
+    <p>Here you can show tips, daily logs, interactive exercises, or motivational quotes.</p>
+  </div>
+
+  <br>
+  <a href="/dashboard">← Back to Dashboard</a>
+</body>
+</html>
